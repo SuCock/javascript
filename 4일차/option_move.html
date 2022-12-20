@@ -21,7 +21,7 @@
       //태그생성해서 right append     .innerHTML, append
       let newload = document.createElement("option")
       right.appendChild(newload)
-      
+      newload.innerText = option.value
       //option.remove();
       left.removeChild(option)
      //기존에 있는건 왼쪽에서 지우고 새로만든건 오른쪽으로 이동
