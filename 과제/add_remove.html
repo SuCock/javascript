@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>add_remove.html</title>
+</head>
+<body>
+  <h3>노드 추가 삭제</h3>
+  <button class = "btnadd">+</button>
+    <div id = "temp">
+      <input id = "school"><input id = "dt"><button class = "btn">-</button>
+    </div>
+    <div id ="result"></div>
+  <script>
+    let btnadd = document.getElementsByClassName("btnadd")[0]   //엘리먼트는 복수다, 배열로 만들어지기 때문에 자리적을것
+    btnadd.onclick = function(){
+   /*    result.innerHTML +=
+      `<div id = "temp">
+        <input id = "school"><input id = "dt"><button class = "btn">-</button>
+      </div>` */
+        let new_div = document.createElement("temp");
+        //setAttribute
+       /*  btnadd.setAttribute("div",""); */
+        //appendChild = append
+        new_div.innerHTML = temp.innerHTML;
+        document.body.appendChild(new_div);  //temp의 생김새로 append(기존에서 추가)new_div를 추가한다
+        //innerHTML
+        result.innerHTML
+    }
+  </script>
+</body>
+</html> 
