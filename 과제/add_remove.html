@@ -15,19 +15,20 @@
     <div id ="result"></div>
   <script>
     let btnadd = document.getElementsByClassName("btnadd")[0]   //엘리먼트는 복수다, 배열로 만들어지기 때문에 자리적을것
+    temp = document.querySelector("#temp")          //28번의 temp를 알려주기위해 만든다
     btnadd.onclick = function(){
    /*    result.innerHTML +=
       `<div id = "temp">
         <input id = "school"><input id = "dt"><button class = "btn">-</button>
       </div>` */
-        let new_div = document.createElement("temp");
+        let new_div = document.createElement("div");   //태그가 들어가야한다
         //setAttribute
-       /*  btnadd.setAttribute("div",""); */
-        //appendChild = append
+        new_div.setAttribute("id","temp");             //태그와 태그명
+        //appendChild = append 
         new_div.innerHTML = temp.innerHTML;
         document.body.appendChild(new_div);  //temp의 생김새로 append(기존에서 추가)new_div를 추가한다
         //innerHTML
-        result.innerHTML
+        //result.innerHTML
     }
   </script>
 </body>
