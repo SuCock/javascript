@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dom2.html</title>
+</head>
+<body>
+  <input id ="txt1">   
+  <input id ="txt2">   
+  <button id = "addBtn1">추가</button>
+  <button id = "addBtn2">추가</button>
+  <table id = "itemlist">
+    <tr><td>txt1.value</td>
+        <td>txt.2value</td>
+    </tr>
+  </table>
+    <option value = "apple">사과</option>    
+  <script>
+    addBtn1.onclick = function(){
+      //tr태그 생성
+      let option = document.createElement("tr")       //<li>
+      //td태그 생성하여 tr에 추가
+      option.setAttribute("value",txt1.value);   //<li class = "item">   txt1->value txt2->tag내용
+      //td태그 생성하여 tr에 추가
+      option.innerText = txt2.value;           //<li class="item">test   teg내용에 들어가는
+      //tr을 tbody에 append
+
+    }
+    addBtn2.onclick = function(){
+      itemlist.innerHTML += "<option value = "+txt1.value+">"+txt2.value+"</option>"
+                             /* `<option value = "${txt1.value}">${txt2.value}</option>` */
+    }
+  </script>
+</body>
+</html>

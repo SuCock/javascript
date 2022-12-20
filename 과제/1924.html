@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1924.html</title>
+</head>
+<body>
+  <script>
+    let date = prompt().split(" ")
+    let sum = 0;
+    let day = parseInt(date[1])
+    let month = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    let week = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
+    for (let i = 0; i < month - 1; i++){
+      sum += month[i];
+    }
+    if((sum+day)%7)
+  </script>
+</body>
+</html>

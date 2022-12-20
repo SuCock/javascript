@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>random.html</title>
+</head>
+<body>
+  <img src="/3일차/img/강아지2.jpg" id="img">
+  <script>
+    let imgArr = new Array();
+    imgArr.push("./img/강아지1.jpg");
+    imgArr.push("./img/강아지2.jpg");
+    imgArr.push("./img/강아지3.jpg");
+    imgArr.push("./img/요크셔테리어.jpg");
+    imgArr.push("./img/말티즈.jpg");
+    //배열의 크기만큼 0~length
+    let num = Math.floor(Math.random()*imgArr.length) //0~0.9991    *10    -> //0~9.999999 +1
+    // console.log(num);
+    // img.src = "./img/사과.jpg"      //.현재위치의
+    img.src = imgArr[num]
+</script>
+</body>
+</html>
