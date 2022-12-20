@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jabascript.html</title>
+</head>
+<body>
+  <img src="/3일차/img/강아지2.jpg" id="img">
+  <script>
+
+  let imgArr = new Array();
+    imgArr.push("./img/강아지1.jpg");
+    imgArr.push("./img/강아지2.jpg");
+    imgArr.push("./img/강아지3.jpg");
+    imgArr.push("./img/요크셔테리어.jpg");
+    imgArr.push("./img/말티즈.jpg");
+    
+   /*  function changeImg(){
+      let num = Math.floor(Math.random()*imgArr.length)
+      img.src = imgArr[num]
+    } */
+
+    changeImg = () => {
+      let num = Math.floor(Math.random()*imgArr.length); 
+      img.src = imgArr[num];
+    }
+
+    window.setInterval(() => {
+      let num = Math.floor(Math.random()*imgArr.length); 
+      img.src = imgArr[num];
+    },2000)
+</script>
+    </body>
+</html>

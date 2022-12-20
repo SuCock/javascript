@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>function_arrow</title>
+</head>
+<body>
+  <script>
+    //div.onclick = function(){}   //익명함수
+   /*  let hi = function() {
+      return 'hello'; 
+   }
+
+   let hello = function(name){
+    return name + 'hello'
+   }
+
+   let hi = function(name){
+    alert(name + 'hello')    //return이외에는 중괄호에 적어줘야한다
+   }
+
+   function sum(a,b){
+    return a+b
+   }
+   */
+    let hi = () => 'hello';
+    let hello = name => name+'hello';
+    let bye = name => {
+      alert(name + 'hello')
+    }   
+    let sum = (a,b) => a+b
+    
+
+    console.log(hi());
+    console.log(hello('choi'));
+    console.log(sum(10,20));
+
+  </script>
+</body>
+</html>
