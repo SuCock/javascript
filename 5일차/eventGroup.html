@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eventGroup.html</title>
+  <style>
+    div{
+      margin : 5px; padding : 10px; border : 1px solid pink;
+    }
+  </style>
+  </head>
+<body>
+  
+  <div id = "apple" class = "ele">사과</div>
+  <div id = "banana" class = "ele">바나나</div>
+  <div id = "cherry" class = "ele">체리</div>
+  
+  <div id = "basket"></div>
+  <div id = "template" style = "display: none;">
+    <div class="fruit" title="사과"><span>사과</span></div>
+  </div>
+  <script>  
+
+      document.body.addEventListener("click", function(ev){
+      if( ! ev.target.classList.contains("ele")) {     //body 자식의 클래스ele가 아니면 다시 돌아가고 맞으면 나간다
+        return;
+      }
+      console.log(ev);
+      let content = event.target.innerText;
+      let div = `<div class="fruit" title="${content}"><span>${content}</span></div>`
+      basket.innerHTML += div;   //이동
+    }
+    )
+    basket.addEventListener("click", function(ev){
+      let node = ev.target;    //실제로 이벤트가 발생한 대상(태그=타켓)
+      if( ev.target.classList.contains("fruit")){  //div이면 본인을 삭제
+        ev.target.remove();
+      }
+      else if(ev.target.nodeName == "SPAN"){   //span 태그이면 부모 div를 삭제
+        node.parentNode.remove();
+      }
+      })
+  </script>
+</body>
+</html>
