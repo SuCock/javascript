@@ -29,17 +29,14 @@
       }
       console.log(ev);
       let content = event.target.innerText;
-      let div = `<div class="fruit" title="${content}"><span>${content}</span></div>`
+      let div = `<div class="fruit" title="${content}"><span>${content}<button>삭제</button></span></div>`
       basket.innerHTML += div;   //이동
     }
     )
     basket.addEventListener("click", function(ev){
       let node = ev.target;    //실제로 이벤트가 발생한 대상(태그=타켓)
-      if( ev.target.classList.contains("fruit")){  //div이면 본인을 삭제
-        ev.target.remove();
-      }
-      else if(ev.target.nodeName == "SPAN"){   //span 태그이면 부모 div를 삭제
-        node.parentNode.remove();
+     if(ev.target.nodeName == "BUTTON"){   //span 태그이면 부모 div를 삭제
+        node.closest("div").remove();
       }
       })
   </script>

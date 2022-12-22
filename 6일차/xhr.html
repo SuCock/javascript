@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>xhr.html</title>
+  <style>
+    table{
+      border-collapse: collapse;
+    }
+    thead{
+      background-color: pink;
+      color: black;
+      font-weight: bold;
+      text-align: center;
+    }
+    tbody{
+      background-color: rgb(251, 234, 253);
+    }
+    h3{
+      color: rgb(0, 0, 0);
+      text-align: center;
+      border: 2px solid #000;
+      border-radius: 20px;
+      padding: 5px;
+      background-color: pink;
+    }
+      </style>
+</head>
+<body>
+  <h3>서버에서 비동기로 데이터 가져오기</h3>
+  <table border="1">
+    <tbody id = "tb">
+    <thead>
+      <tr>
+      <td>no</td>
+      <td>userId</td>
+      <td>title</td>
+      <td>body</td>
+    </tr>
+  </thead>
+  </tbody>
+  </table>
+  <script>
+    //url, 응답처리(callback)만 다르다
+    //1.xhr객체 생성
+    let xhr = new XMLHttpRequest();
+
+    //2.콜백함수
+    xhr.onload = callback;
+    //3.요청연결
+    let url = 'https://jsonplaceholder.typicode.com/posts'
+    xhr.open('get',url);
+    //4.요청전달
+    xhr.send();
+    
+    function callback(){
+      let obj = JSON.parse(xhr.response);
+      console.log(obj.title);
+      for(let i = 0;i<obj.length; i++){
+        let div = `<tr>
+          <td>${obj[i].userId}</td>
+          <td>${obj[i].id}</td>
+          <td>${obj[i].title}</td>
+          <td>${obj[i].body}</td>
+          </tr>`
+          tb.innerHTML += div
+        }
+      }
+  </script>
+</body>
+</html>

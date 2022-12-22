@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>movie2.html</title>
+  <style>
+    span{
+      padding : 3px;
+      margin : 3px;
+    }
+    #result{
+      width: 500px;
+      padding : 10px;
+      border : 5px solid rgb(192, 242, 255);
+      border-radius: 10px;
+      background-color: rgb(248, 182, 182);
+    }
+    h3{
+      color: rgb(119, 198, 218);
+    }
+  </style>
+</head>
+<body>
+  <h3>영화정보</h3>
+  <div id = "result" ></div>
+  <div id = "template" style="display: none;">
+    <div>
+      <span class = "no"></span>
+      <span class = "title"></span>
+      <span class = "cd"></span>
+    </div>
+  </div>
+  <script src="movie.js"></script>
+  <script>
+    //movieNm만 모두 출력
+    let mvlist = movies.boxOfficeResult.dailyBoxOfficeList ;
+    for (let i = 0; i<mvlist.length; i++){
+     let node = template.children[0].cloneNode(true);
+     node.querySelector(".no").innerText = mvlist[i].rank
+     node.querySelector(".title").innerText = mvlist[i].movieNm
+     node.querySelector(".cd").innerText = mvlist[i].movieCd
+     result.append(node);
+  }
+
+  </script>
+</body>
+</html>

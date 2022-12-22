@@ -21,48 +21,58 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
 }
-.class{
-  dis
-}
+/* .class{
+  display: ;
+} */
 </style>
 </head>
 <body>
 
 <h2>Card</h2>
 <div id="container">
-<div class="card">
-  <img src="img_avatar.png" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div>
-<!-- 클론노드 이용 -->
-<div class="card">
-  <img src="img_avatar.png" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div>
-</div>
-<script>
-  let persons = [
-  { name:'chol', skill:'Architect & Engineer', img: '/3일차/img/강아지1.jpg', alt: "dog1"},
-  { name:'park', skill: 'deginner', img: '/3일차/img/강아지2.jpg', alt: "dog2"},
-  { name:'kim', skill: 'program', img: '/3일차/img/강아지3.jpg', alt: "dog3"}
-]
+  <div id = "template" style = "display: none;">
+  <div class="card">
 
-for(let i = 0; i<persons.length; i++){
-  let newNode = `<div class="card">';
-  <img src=${persons[i].img} alt=${persons[i].alt} style="width:100%">;
-  <div class="container">;
-    <h4><b>${persons[i].name}</b></h4>; 
-    <p>${persons[i].skill}</p> ;
+    <!-- <img src="img_avatar.png" alt="Avatar" style="width:100%"> -->
   </div>
-  </div>`
+  </div>
+  </div>
+
+<script>
+  
+
+/* for(let i = 0; i<persons.length; i++){
+  let newNode = `<div class="card">';
+    <img src=${persons[i].img} alt=${persons[i].alt} style="width:100%">;
+    <div class="container">;
+      <h4><b>${persons[i].name}</b></h4>; 
+      <p>${persons[i].skill}</p> ;
+      </div>
+      </div>`
+    let div = template.querySelector(".container").cloneNude(true);
   container.innerHTML += newNode;
+
+} */
+
+function personload(){
+  //ajax 호출
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function(){ callback(xhr);  }
+  let url = 'https://jsonplaceholder.typicode.com/users'
+  xhr.open('get',url);
+  xhr.send();
 }
+  function callback(xhr){
+    let data = JSON.parse(xhr.response)
+    for (let i = 0; i<data.length; i++){
+    let div = ` <div class="card"><h4><b>${data[i].name}</b></h4> 
+      <p>${data[i].email}</p>
+      <p>${data[i].company.name}</p></div>`
+      container.innerHTML += div;
+    }
+  }
+
+personload();
 </script>
 </body>
 </html> 
