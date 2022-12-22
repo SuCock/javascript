@@ -22,13 +22,12 @@
     <div class="fruit" title="사과"><span>사과</span></div>
   </div>
   <script>  
-
       document.body.addEventListener("click", function(ev){
       if( ! ev.target.classList.contains("ele")) {     //body 자식의 클래스ele가 아니면 다시 돌아가고 맞으면 나간다
         return;
       }
       console.log(ev);
-      let content = event.target.innerText;
+      let content = ev.target.innerText;
       let div = `<div class="fruit" title="${content}"><span>${content}<button>삭제</button></span></div>`
       basket.innerHTML += div;   //이동
     }
