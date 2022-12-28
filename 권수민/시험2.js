@@ -1,42 +1,73 @@
-let goods = [
-  { no: "1", title: "스프링", price: 40000, desc: "스프링은 프레임워크" },
-  { no: "2", title: "자바", price: 25000, desc: "자바는..." },
-  { no: "3", title: "SQL", price: 32000, desc: "sql도 언어" },
+let users = [
+  { userno: "100", email: "aa@b.com", username: "김기자", point: 250 },
+  { userno: "101", email: "bb.yedam.ac", username: "이순신", point: 150 },
+  { userno: "102", email: "cc.naver.com", username: "을지문덕", point: 100 },
 ];
-let cartlist = [];
-makeTag();
-//조회
+
 function makeTag() {
-  for (let i = 0; i < goods.length; i++) {
-    let tag = `<div class="card" data-no=${goods[i].no}>
-      <img src="/w3images/jeans3.jpg" alt="Denim Jeans" style="width: 100%" />
-      <h1>${goods[i].title}</h1>
-      <p class="price">${goods[i].price}</p>
-      <p>${goods[i].desc}</p>
-      <p><button class = "cart">Add to Cart</button></p>
-      <p><button class = "del">Delete from Cart</button></p>
-      </div>;`;
-    document.querySelector("#list").innerHTML += tag;
+  list.innerHTML = "";
+  for (let i = 0; i < users.length; i++) {
+    list.innerHTML += `<tr>
+  <td>${users[i].userno}</td>
+  <td>${users[i].email}</td>
+  <td>${users[i].username}</td>
+  <td class="point">${users[i].point}</td>
+  <td>
+    <button>삭제</button>
+  </td>
+</tr>`;
   }
 }
-//장바구니
-document.querySelector("#list").addEventListener("click", function (ev) {
-  let btn = ev.target;
-  if (btn.classList.contains("cart") == "BUTTON") {
-    let price = btn.closest(".card").querySelector(".price").innerHTML;
-    console.log(price);
-  } else if (btn.classList.contains("del")) {
-    //삭제
-    let idx = btn.closest(".card").getAttribute("data-no");
-    for (let i = 0; i < goods.length; i++) {
-      if (goods[i].no == idx) {
-        goods.splice(i, 1);
-        break;
-      }
-    }
-    console.table(goods);
-    btn.closest(".card").remove();
+makeTag();
+list.addEventListener("click", function (ev) {
+  if (ev.target.nodeName == "BUTTON") {
+    /* let no = ev.target.closest("tr").children[1].innerText;
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].no == no) {
+        users.splice(i, 1); */
+    ev.target.closest("tr").remove();
   }
 });
 
-//가격계산
+btnAdd.addEventListener("click", function (ev) {
+  let obj = {
+    userno: userno.value,
+    email: email.value,
+    username: username.value,
+    point: point.value,
+  };
+  if (!inputCheck()) {
+    return;
+  }
+  users.push(obj);
+  makeTag();
+  innputClear();
+});
+
+btnSum.addEventListener("click", function () {
+  //totalPoint.push(pointTotalCalc);
+  let total = 0;
+  for (let i = 0; i < users.length; i++) {
+    total += users[i].point * 1;
+  }
+});
+/* function pointTotalCalc() {
+  let total = 0;
+  for (let i = 0; i < users.length; i++) {
+    total += users[i].point * 1;
+  }
+} */
+function inputCheck() {
+  if (email.value == "") {
+    alert("이메일");
+    email.focus();
+    return false;
+  }
+  return true;
+}
+function inputClear() {
+  usersno.value = "";
+  email.value = "";
+  usersname.value = "";
+  point.value = "";
+}
